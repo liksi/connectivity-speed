@@ -2,13 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#import "FLTConnectivityPlugin.h"
+#import "ConnectivitySpeedPlugin.h"
 
 #import "Reachability/Reachability.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
-#import "FLTConnectivityLocationHandler.h"
 #import "SystemConfiguration/CaptiveNetwork.h"
 
 #include <ifaddrs.h>
