@@ -15,6 +15,7 @@ Flutter plugin to get more detailed network connection type
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
+  s.dependency 'Reachability'
   s.platform = :ios, '8.0'
 
   # Flutter.framework does not contain a i386 slice.
