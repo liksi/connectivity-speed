@@ -14,24 +14,13 @@
 
 #include <arpa/inet.h>
 
-@interface ConnectivitySpeedPlugin () <FlutterStreamHandler, CLLocationManagerDelegate>
-
-@end
-
 @implementation ConnectivitySpeedPlugin
-
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
+  FlutterMethodChannel* channel = [FlutterMethodChannel
+      methodChannelWithName:@"connectivity_speed"
+            binaryMessenger:[registrar messenger]];
   ConnectivitySpeedPlugin* instance = [[ConnectivitySpeedPlugin alloc] init];
-
-  FlutterMethodChannel* channel =
-      [FlutterMethodChannel methodChannelWithName:@"connectivity_speed"
-                                  binaryMessenger:[registrar messenger]];
   [registrar addMethodCallDelegate:instance channel:channel];
-
-  FlutterEventChannel* streamChannel =
-      [FlutterEventChannel eventChannelWithName:@"connectivity_speed"
-                                binaryMessenger:[registrar messenger]];
-  [streamChannel setStreamHandler:instance];
 }
 
 - (NSString*)getConnectionSubtype:(Reachability*)reachability {
@@ -73,7 +62,7 @@
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-  if ([call.method isEqualToString:@"getNetworkSubType"]) {
+  if ([@"getNetworkSubType" isEqualToString:call.method]) {
     result([self getConnectionSubtype:[Reachability reachabilityForInternetConnection]]);
   } else {
     result(FlutterMethodNotImplemented);
