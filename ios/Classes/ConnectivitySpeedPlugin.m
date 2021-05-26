@@ -73,7 +73,7 @@
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-  if ([call.method isEqualToString:@"subtype"]) {
+  if ([call.method isEqualToString:@"getNetworkSubType"]) {
     result([self getConnectionSubtype:[Reachability reachabilityForInternetConnection]]);
   } else {
     result(FlutterMethodNotImplemented);

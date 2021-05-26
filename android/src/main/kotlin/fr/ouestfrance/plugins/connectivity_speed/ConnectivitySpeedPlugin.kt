@@ -1,4 +1,4 @@
-package com.ouestfrance.plugins.connectivity_speed
+package fr.ouestfrance.plugins.connectivity_speed
 
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
@@ -31,7 +31,7 @@ class ConnectivitySpeedPlugin: FlutterPlugin, MethodCallHandler {
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-        if (call.method == "subtype") {
+        if (call.method == "getNetworkSubType") {
             result.success(getNetworkSubType())
         } else {
             result.notImplemented()

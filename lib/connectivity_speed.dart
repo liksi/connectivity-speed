@@ -15,7 +15,8 @@ class ConnectivitySpeed {
   }
 
   /// Checks the network subtype of the device.
-  Future<ConnectionSubtype> getNetworkSubtype() {
-    throw UnimplementedError('getNetworkSubtype() has not been implemented.');
+  Future<ConnectionSubtype> getNetworkSubType() async {
+    final subType = await _channel.invokeMethod('getNetworkSubType');
+    return connectionTypeMap[subType] ?? ConnectionSubtype.unknown;
   }
 }

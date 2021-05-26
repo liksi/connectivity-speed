@@ -1,4 +1,4 @@
-group 'com.example.connectivity_speed'
+group 'fr.ouestfrance.plugins.connectivity_speed'
 version '1.0-SNAPSHOT'
 
 buildscript {
